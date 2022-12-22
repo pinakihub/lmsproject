@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div align="center">
 <h1>Registration Form</h1> 
-<form action="Register">  
-<table style="with: 50%">
+<form action="/register"  method="post">  
+<table style="with: 80%">
 <tr>
 					
 				<tr>
@@ -40,10 +41,11 @@
 				<tr>
 					<td>Role</td>
 					<td><input type="text" name="role" /></td>
-				</tr>
+					</tr>
 				</table>
 <input type="submit" value="Register">
 
-</form>  
+</form> 
+</div> 
 </body>
 </html>
