@@ -15,9 +15,9 @@ public class SuggestController {
 	@Autowired(required = false)
 	private SuggestService ss;
 
-	@RequestMapping("/home/{sid}")
-	public Suggest getSuggestion(@PathVariable String sid) {
-		return this.ss.getSuggestions(Long.parseLong(sid));
+	@RequestMapping("/home")
+	public String getSuggestion() {
+		return "register";
 	}
 
 }
