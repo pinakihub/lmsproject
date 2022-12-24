@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +10,10 @@
 <body>
 <div align="center">
 <h1>Registration Form</h1> 
-<form action="/register"  method="post">  
+<form action="/userregister"  method="post">  
+<p>${msg}</p>
 <table style="with: 80%">
+
 <tr>
 					
 				<tr>
@@ -30,8 +33,14 @@
 					<td><input type="text" name="contact" /></td>
 				</tr>
 				<tr>
-					<td>Department</td>
-					<td><input type="text" name="dept" /></td>
+					  <td>Department</td> 
+					<td><select name="department" >
+                     	<option>IT</option>
+					<option>CSE</option>
+					<option>ECE</option>
+					<option>CE</option>
+					<option>ME</option>
+					</select></td>
 				</tr>
 				<tr>
 					<td>Batch</td>
@@ -40,8 +49,15 @@
 				
 				<tr>
 					<td>Role</td>
-					<td><input type="text" name="role" /></td>
+					<td><select name="role" >
+                     	<option>STUDENT</option>
+					<option>TEACHER</option>
+					
+					</select></td>
 					</tr>
+					
+					
+					
 				</table>
 <input type="submit" value="Register">
 

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.lms.constants.UserDept;
+import com.lms.constants.UserRoles;
 import com.lms.model.User;
 import com.lms.service.UserService;
 
@@ -31,25 +33,47 @@ public class UserController {
 	 * @GetMapping("/userprofile") public String profile() { return "userprofile"; }
 	 */
 
+	@GetMapping("/user/register")
+	public String register(Model model) {
+		// System.out.println(UserDept.fromString("CSE"));
+		
+		/*
+		 * model.addAttribute("departments",UserDept.values());
+		 * model.addAttribute("roles",UserRoles.values());
+		 */
+		 
+		return "user/register";
+	}
+
 	@PostMapping(path = "/userregister")
 	public String doregister(@RequestParam Map<String, String> body, Model model) {
 		try {
 			User user = new User();
+			// System.out.println(body);
 
-			user.setUserName(body.get("userName"));
-			user.setUserPassword(body.get("userPassword"));
-			user.setUserAddress(body.get("userAddress"));
-			user.setActive(Boolean.parseBoolean(body.get("isActive")));
-			user.setUserId(Long.parseLong(body.get("userId")));
-            user.setUserBatch(body.get("userBatch"));
-            user.setUserContact(Long.parseLong(body.get("userContact")));
-			 this.us.addUser(user);
-			 model.addAttribute("msg","success");
+			user.setUserName(body.get("username"));
+			user.setUserPassword(body.get("password"));
+			user.setUserAddress(body.get("address"));
+			user.setUserContact(Long.parseLong(body.get("contact")));
+			 user.setDept(UserDept.fromString(body.get("role")));
+			if (body.get("batch") != null) {
+				user.setUserBatch(body.get("batch"));
+			}
 			
+
+			// System.out.println(UserDept.fromString(body.get("dept")));
+
+			user.setDept(UserDept.fromString(body.get("dept")));
+
+			
+			System.out.println(user);
+			this.us.addUser(user);
+			model.addAttribute("msg", "success");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "register";
+		return "userlogin";
 
 	}
 }
