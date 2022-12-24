@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div align="center"">
-		<h1>Please login</h1>
+		<h1>Please Login</h1>
 		<form action="/login" method="POST">
 			<table style="with: 80%">
 				<tr>
