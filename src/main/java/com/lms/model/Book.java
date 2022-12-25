@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tblBook")
-public class Books {
+public class Book {
 	@Id
 	@Column(name="BookId")
 	private Long bookId;
@@ -22,12 +22,12 @@ public class Books {
 	@Column(name="BookGenre")
 	private String bookGenre;
 
-	public Books() {
+	public Book() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Books(Long bookId, String bookTitle, String bookAuthor, Long bookCount, String bookSubject,
+	public Book(Long bookId, String bookTitle, String bookAuthor, Long bookCount, String bookSubject,
 			String bookGenre) {
 		super();
 		this.bookId = bookId;

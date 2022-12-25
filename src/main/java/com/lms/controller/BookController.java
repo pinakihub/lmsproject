@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.lms.model.Books;
+import com.lms.model.Book;
 import com.lms.service.BookService;
 
 @Controller
@@ -34,7 +34,7 @@ public class BookController {
 	@PostMapping("/doaddbook")
 	public String doaddBook(@RequestParam Map<String, String> body, Model model) {
 		try {
-			Books books = new Books();
+			Book books = new Book();
 			books.setBookId(Long.parseLong(body.get("bookId")));
 			books.setBookTitle(body.get("bookTitle"));
 			books.setBookAuthor(body.get("bookAuthor"));
@@ -55,7 +55,7 @@ public class BookController {
 	}
 
 	@PutMapping("/updatebook")
-	public String updateBook(@Validated Books book) {
+	public String updateBook(@Validated Book book) {
 		if (book.getBookId() == null) {
 
 			return "/books/bookform";

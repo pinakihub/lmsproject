@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lms.dao.BookDao;
-import com.lms.model.Books;
+import com.lms.model.Book;
 
 @Service
 public class BookService {
@@ -14,20 +14,20 @@ public class BookService {
 	@Autowired
 	private BookDao bdao;
 	
-	public Books addBook(Books book) {
+	public Book addBook(Book book) {
 		return bdao.save(book);
 	}
 	public Long deleteBooks(Long bid) {
 		bdao.deleteById(bid);
 		return bid;
 	}
-	public Books updateBooks(Books book) {
+	public Book updateBooks(Book book) {
 		return bdao.save(book);
 	}
-	public Books getBooks(Long bid) {
+	public Book getBooks(Long bid) {
 		return bdao.getOne(bid);
 	}
-	public List<Books> getAllBooks(Books book) {
+	public List<Book> getAllBooks(Book book) {
 		return bdao.findAll();
 	}
 
